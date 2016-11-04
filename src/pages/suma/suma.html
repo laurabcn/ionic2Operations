@@ -9,9 +9,10 @@
 
 <ion-content padding>
   <ion-list class='container' [dragula]='"first-bag"'>
-    <button ion-item *ngFor="#name of list">
+    <pre>{{list}}</pre>
+    <button ion-item *ngFor="let hola of list">
       <ion-icon name="move"></ion-icon>
-      {{name}}
+      {{hola}}
     </button>
   </ion-list>
   <ion-list class='container' [dragula]='"first-bag"'>

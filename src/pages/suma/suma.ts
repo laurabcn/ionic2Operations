@@ -9,7 +9,7 @@ import { NavController } from 'ionic-angular';
 
 export class Suma {
 
-  list: Array<any> = new Array(5);
+  list: Array<any> = [];
 
   constructor(public navCtrl: NavController ) {
 

@@ -81320,7 +81320,7 @@ var Home = (function () {
     };
     Home = __decorate$108([
         Component({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/laura.riera/ionic/didacTest/src/pages/home/home.html"*/'<!--\n  Generated template for the Home page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/didacTest/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/home/home.html"*/'<!--\n  Generated template for the Home page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/home/home.html"*/,
         }), 
         __metadata$2('design:paramtypes', [NavController])
     ], Home);
@@ -81339,7 +81339,7 @@ var __metadata$3 = (undefined && undefined.__metadata) || function (k, v) {
 var Suma = (function () {
     function Suma(navCtrl) {
         this.navCtrl = navCtrl;
-        this.list = new Array(5);
+        this.list = [];
         for (var _i = 0; _i < this.list.length; _i++) {
             var numberRandom = Math.floor(Math.random() * 10);
             this.list.push(numberRandom);
@@ -81347,7 +81347,7 @@ var Suma = (function () {
     }
     Suma = __decorate$109([
         Component({
-            selector: 'page-page1',template:/*ion-inline-start:"/Users/laura.riera/ionic/didacTest/src/pages/suma/suma.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Suma</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list class=\'container\' [dragula]=\'"first-bag"\'>\n    <button ion-item *ngFor="#name of list">\n      <ion-icon name="move"></ion-icon>\n      {{name}}\n    </button>\n  </ion-list>\n  <ion-list class=\'container\' [dragula]=\'"first-bag"\'>\n    <button ion-item>\n      <ion-icon name="move"></ion-icon>\n      2\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/didacTest/src/pages/suma/suma.html"*/
+            selector: 'page-page1',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Suma</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list class=\'container\' [dragula]=\'"first-bag"\'>\n    <pre>{{list}}</pre>\n    <button ion-item *ngFor="let hola of list">\n      <ion-icon name="move"></ion-icon>\n      {{hola}}\n    </button>\n  </ion-list>\n  <ion-list class=\'container\' [dragula]=\'"first-bag"\'>\n    <button ion-item>\n      <ion-icon name="move"></ion-icon>\n      2\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma.html"*/
         }), 
         __metadata$3('design:paramtypes', [NavController])
     ], Suma);
@@ -81389,7 +81389,7 @@ var Resta = (function () {
     };
     Resta = __decorate$110([
         Component({
-            selector: 'page-page2',template:/*ion-inline-start:"/Users/laura.riera/ionic/didacTest/src/pages/resta/resta.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Resta</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/didacTest/src/pages/resta/resta.html"*/
+            selector: 'page-page2',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/resta/resta.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Resta</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/resta/resta.html"*/
         }), 
         __metadata$4('design:paramtypes', [NavController, NavParams])
     ], Resta);
@@ -81435,7 +81435,7 @@ var MyApp = (function () {
         __metadata$1('design:type', Nav)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate$1([
-        Component({template:/*ion-inline-start:"/Users/laura.riera/ionic/didacTest/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/laura.riera/ionic/didacTest/src/app/app.html"*/
+        Component({template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/app/app.html"*/
         }), 
         __metadata$1('design:paramtypes', [Platform])
     ], MyApp);
