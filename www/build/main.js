@@ -81336,33 +81336,6 @@ var __decorate$109 = (undefined && undefined.__decorate) || function (decorators
 var __metadata$3 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var Suma = (function () {
-    function Suma(navCtrl) {
-        this.navCtrl = navCtrl;
-        this.list = [];
-        for (var _i = 0; _i < this.list.length; _i++) {
-            var numberRandom = Math.floor(Math.random() * 10);
-            this.list.push(numberRandom);
-        }
-    }
-    Suma = __decorate$109([
-        Component({
-            selector: 'page-page1',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Suma</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list class=\'container\' [dragula]=\'"first-bag"\'>\n    <pre>{{list}}</pre>\n    <button ion-item *ngFor="let hola of list">\n      <ion-icon name="move"></ion-icon>\n      {{hola}}\n    </button>\n  </ion-list>\n  <ion-list class=\'container\' [dragula]=\'"first-bag"\'>\n    <button ion-item>\n      <ion-icon name="move"></ion-icon>\n      2\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma.html"*/
-        }), 
-        __metadata$3('design:paramtypes', [NavController])
-    ], Suma);
-    return Suma;
-}());
-
-var __decorate$110 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var Resta = (function () {
     function Resta(navCtrl, navParams) {
         this.navCtrl = navCtrl;
@@ -81387,13 +81360,253 @@ var Resta = (function () {
             item: item
         });
     };
-    Resta = __decorate$110([
+    Resta = __decorate$109([
         Component({
             selector: 'page-page2',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/resta/resta.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Resta</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-left></ion-icon>\n      {{item.title}}\n      <div class="item-note" item-right>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n  <div *ngIf="selectedItem" padding>\n    You navigated here from <b>{{selectedItem.title}}</b>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/resta/resta.html"*/
         }), 
-        __metadata$4('design:paramtypes', [NavController, NavParams])
+        __metadata$3('design:paramtypes', [NavController, NavParams])
     ], Resta);
     return Resta;
+}());
+
+var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var Suma1 = (function () {
+    function Suma1(navCtrl, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.toastCtrl = toastCtrl;
+        this.numberOne = this.getNumberRandom();
+        this.numberTwo = this.getNumberRandom();
+        this.result = this.add(this.numberOne, this.numberTwo);
+    }
+    Suma1.prototype.getNumberRandom = function () {
+        var numberReturn = Math.floor(Math.random() * 10);
+        if (numberReturn === 0)
+            numberReturn += 1;
+        return numberReturn;
+    };
+    Suma1.prototype.setNumbers = function () {
+        this.numberOne = this.getNumberRandom();
+        this.numberTwo = this.getNumberRandom();
+        this.result = this.numberOne + this.numberTwo;
+    };
+    Suma1.prototype.checkResult = function () {
+        if (this.resultDidac === this.result.toLocaleString()) {
+            var toast = this.toastCtrl.create({
+                message: 'Molt bé, Dídac!!!!',
+                duration: 1500,
+                position: 'middle'
+            });
+            toast.present();
+            this.setNumbers();
+        }
+        else {
+            var toast = this.toastCtrl.create({
+                message: 'Oh vaya',
+                duration: 1500,
+                position: 'middle'
+            });
+            toast.present();
+        }
+        this.resultDidac = '';
+    };
+    Suma1.prototype.add = function (x, y) {
+        return x + y;
+    };
+    Suma1 = __decorate$111([
+        Component({
+            selector: 'page-page1',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma1/suma.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Suma</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <div class="number">{{numberOne}}</div>\n    <div class="number"><span>+</span>{{numberTwo}}</div>\n    <hr />\n  </ion-item>\n  <ion-input placeholder="Text Input" [(ngModel)]="resultDidac" (change)="checkResult()" ></ion-input>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma1/suma.html"*/
+        }), 
+        __metadata$5('design:paramtypes', [NavController, ToastController])
+    ], Suma1);
+    return Suma1;
+}());
+
+var __extends$140 = (undefined && undefined.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var __decorate$112 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$6 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var Suma2 = (function (_super) {
+    __extends$140(Suma2, _super);
+    function Suma2(navCtrl, toastCtrl) {
+        _super.call(this, navCtrl, toastCtrl);
+        this.navCtrl = navCtrl;
+        this.toastCtrl = toastCtrl;
+        this.numberOne = this.getNumberRandom();
+        this.numberTwo = this.getNumberRandom();
+        this.result = this.add(this.numberOne, this.numberTwo);
+        this.numberValidate();
+    }
+    Suma2.prototype.getNumberRandom = function () {
+        var numberReturn = Math.floor(Math.random() * 100);
+        if (numberReturn === 0)
+            numberReturn += 1;
+        return numberReturn;
+    };
+    Suma2.prototype.numberValidate = function () {
+        var validateFirst = (this.numberOne + "").substr(1);
+        var validateSecond = (this.numberTwo + "").substr(1);
+        var resultValidate = this.add(+validateFirst, +validateSecond);
+        if (resultValidate >= 10) {
+            this.setNumbers();
+        }
+    };
+    Suma2.prototype.setNumbers = function () {
+        this.numberOne = this.getNumberRandom();
+        this.numberTwo = this.getNumberRandom();
+        this.result = this.numberOne + this.numberTwo;
+        this.numberValidate();
+    };
+    Suma2.prototype.checkResult = function () {
+        if (this.resultDidac === this.result.toLocaleString()) {
+            var toast = this.toastCtrl.create({
+                message: 'Molt bé, Dídac!!!!',
+                duration: 1500,
+                position: 'middle'
+            });
+            toast.present();
+            this.setNumbers();
+        }
+        else {
+            var toast = this.toastCtrl.create({
+                message: 'Oh vaya',
+                duration: 1500,
+                position: 'middle'
+            });
+            toast.present();
+        }
+        this.resultDidac = '';
+    };
+    Suma2.prototype.add = function (x, y) {
+        return x + y;
+    };
+    Suma2 = __decorate$112([
+        Component({
+            selector: 'page-suma2',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma2/suma2.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Suma</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <div class="number">{{numberOne}}</div>\n    <div class="number"><span>+</span>{{numberTwo}}</div>\n    <hr />\n  </ion-item>\n  <ion-input placeholder="Text Input" [(ngModel)]="resultDidac" (change)="checkResult()" ></ion-input>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma2/suma2.html"*/
+        }), 
+        __metadata$6('design:paramtypes', [NavController, ToastController])
+    ], Suma2);
+    return Suma2;
+}(Suma1));
+
+var __decorate$113 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$7 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*
+  Generated class for the Suma3 page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var Suma3 = (function () {
+    function Suma3(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    Suma3.prototype.ionViewDidLoad = function () {
+        console.log('Hello Suma3 Page');
+    };
+    Suma3 = __decorate$113([
+        Component({
+            selector: 'page-suma3',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma3/suma3.html"*/'<!--\n  Generated template for the Suma3 page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>suma3</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma3/suma3.html"*/
+        }), 
+        __metadata$7('design:paramtypes', [NavController])
+    ], Suma3);
+    return Suma3;
+}());
+
+var __decorate$114 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$8 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*
+  Generated class for the Suma4 page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+var Suma4 = (function () {
+    function Suma4(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    Suma4.prototype.ionViewDidLoad = function () {
+        console.log('Hello Suma4 Page');
+    };
+    Suma4 = __decorate$114([
+        Component({
+            selector: 'page-suma4',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma4/suma4.html"*/'<!--\n  Generated template for the Suma4 page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>suma4</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/suma4/suma4.html"*/
+        }), 
+        __metadata$8('design:paramtypes', [NavController])
+    ], Suma4);
+    return Suma4;
+}());
+
+var __decorate$110 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var SelectLevelSuma = (function () {
+    function SelectLevelSuma(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    SelectLevelSuma.prototype.ionViewDidLoad = function () {
+        console.log('Hello SelectLevelSuma Page');
+    };
+    SelectLevelSuma.prototype.setLevel = function (level) {
+        switch (level) {
+            case 2:
+                this.navCtrl.push(Suma2);
+                break;
+            case 3:
+                this.navCtrl.push(Suma3);
+                break;
+            case 4:
+                this.navCtrl.push(Suma4);
+                break;
+            default:
+                this.navCtrl.push(Suma1);
+                break;
+        }
+    };
+    SelectLevelSuma = __decorate$110([
+        Component({
+            selector: 'page-select-level-suma',template:/*ion-inline-start:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/select-level-suma/select-level-suma.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>selectLevelSuma</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <button ion-button round color="dark" (tap)="setLevel(1)">Nivell 1: Suma de dos numeros de l\'1 al 9</button>\n  </ion-item>\n  <ion-item>\n    <button ion-button round color="dark" (tap)="setLevel(2)">Nivell 2: Suma de dos numeros de dos xifres (ni zeros, ni me n\'emporto 1 )</button>\n  </ion-item>\n  <ion-item>\n    <button ion-button round color="dark" (tap)="setLevel(3)">Nivell 3: Suma de dos numeros de dos xifres (amb zeros)</button>\n  </ion-item>\n  <ion-item>\n    <button ion-button round color="dark" (tap)="setLevel(4)">Nivell 4: Suma de dos numeros de dos xifres </button>\n  </ion-item>\n</ion-content>\n'/*ion-inline-end:"/Users/laura.riera/ionic/operacionsDidac/src/pages/suma/select-level-suma/select-level-suma.html"*/
+        }), 
+        __metadata$4('design:paramtypes', [NavController])
+    ], SelectLevelSuma);
+    return SelectLevelSuma;
 }());
 
 var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -81413,7 +81626,7 @@ var MyApp = (function () {
         // used for an example of ngFor and navigation
         this.pages = [
             { title: 'Home', component: Home },
-            { title: 'Suma', component: Suma },
+            { title: 'Suma', component: SelectLevelSuma },
             { title: 'Resta', component: Resta },
         ];
     }
@@ -82317,13 +82530,13 @@ var dragula_1 = dragula$1;
 
 var require$$2$3 = ( index && index['default'] ) || index;
 
-var __decorate$111 = (commonjsGlobal && commonjsGlobal.__decorate) || function (decorators, target, key, desc) {
+var __decorate$115 = (commonjsGlobal && commonjsGlobal.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$5 = (commonjsGlobal && commonjsGlobal.__metadata) || function (k, v) {
+var __metadata$9 = (commonjsGlobal && commonjsGlobal.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var dragula = dragula_1;
@@ -82450,9 +82663,9 @@ var DragulaService = (function () {
     DragulaService.prototype.domIndexOf = function (child, parent) {
         return Array.prototype.indexOf.call(parent.children, child);
     };
-    DragulaService = __decorate$111([
+    DragulaService = __decorate$115([
         core_1.Injectable(), 
-        __metadata$5('design:paramtypes', [])
+        __metadata$9('design:paramtypes', [])
     ], DragulaService);
     return DragulaService;
 }());
@@ -82462,13 +82675,13 @@ var dragula_provider = {
 	DragulaService: DragulaService_1
 };
 
-var __decorate$112 = (commonjsGlobal && commonjsGlobal.__decorate) || function (decorators, target, key, desc) {
+var __decorate$116 = (commonjsGlobal && commonjsGlobal.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$6 = (commonjsGlobal && commonjsGlobal.__metadata) || function (k, v) {
+var __metadata$10 = (commonjsGlobal && commonjsGlobal.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1$1 = require$$2$3;
@@ -82522,19 +82735,19 @@ var DragulaDirective = (function () {
             }
         }
     };
-    __decorate$112([
+    __decorate$116([
         core_1$1.Input('dragula'), 
-        __metadata$6('design:type', String)
+        __metadata$10('design:type', String)
     ], DragulaDirective.prototype, "bag", void 0);
-    __decorate$112([
+    __decorate$116([
         core_1$1.Input(), 
-        __metadata$6('design:type', Object)
+        __metadata$10('design:type', Object)
     ], DragulaDirective.prototype, "dragulaModel", void 0);
-    DragulaDirective = __decorate$112([
+    DragulaDirective = __decorate$116([
         core_1$1.Directive({
             selector: '[dragula]'
         }), 
-        __metadata$6('design:paramtypes', [core_1$1.ElementRef, dragula_provider_1.DragulaService])
+        __metadata$10('design:paramtypes', [core_1$1.ElementRef, dragula_provider_1.DragulaService])
     ], DragulaDirective);
     return DragulaDirective;
 }());
@@ -82598,8 +82811,12 @@ var AppModule = (function () {
             declarations: [
                 MyApp,
                 Home,
-                Suma,
-                Resta
+                Suma1,
+                Suma2,
+                Suma3,
+                Suma4,
+                Resta,
+                SelectLevelSuma
             ],
             imports: [
                 IonicModule.forRoot(MyApp),
@@ -82609,8 +82826,12 @@ var AppModule = (function () {
             entryComponents: [
                 MyApp,
                 Home,
-                Suma,
-                Resta
+                Suma1,
+                Suma2,
+                Suma3,
+                Suma4,
+                Resta,
+                SelectLevelSuma
             ],
             providers: []
         }), 

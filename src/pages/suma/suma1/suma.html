@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Suma</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <div class="number">{{numberOne}}</div>
+    <div class="number"><span>+</span>{{numberTwo}}</div>
+    <hr />
+  </ion-item>
+  <ion-input placeholder="Text Input" [(ngModel)]="resultDidac" (change)="checkResult()" ></ion-input>
+</ion-content>

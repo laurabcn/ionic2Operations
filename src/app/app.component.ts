@@ -3,8 +3,9 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { Home } from '../pages/home/home';
-import { Suma } from '../pages/suma/suma';
+
 import { Resta } from '../pages/resta/resta';
+import { SelectLevelSuma } from '../pages/suma/select-level-suma/select-level-suma';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home },
-      { title: 'Suma', component: Suma },
+      { title: 'Suma', component: SelectLevelSuma },
       { title: 'Resta', component: Resta },
     ];
 

@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Home } from '../pages/home/home';
-import { Suma } from '../pages/suma/suma';
 import { Resta } from '../pages/resta/resta';
+import { SelectLevelSuma } from '../pages/suma/select-level-suma/select-level-suma';
+import { Suma1 } from '../pages/suma/suma1/suma1';
+import { Suma2 } from '../pages/suma/suma2/suma2';
+import { Suma3 } from '../pages/suma/suma3/suma3';
+import { Suma4 } from '../pages/suma/suma4/suma4';
 
 import { DragulaModule } from '../../node_modules/ng2-dragula/ng2-dragula';
 
@@ -11,8 +15,12 @@ import { DragulaModule } from '../../node_modules/ng2-dragula/ng2-dragula';
   declarations: [
     MyApp,
     Home,
-    Suma,
-    Resta
+    Suma1,
+    Suma2,
+    Suma3,
+    Suma4,
+    Resta,
+    SelectLevelSuma
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -22,8 +30,12 @@ import { DragulaModule } from '../../node_modules/ng2-dragula/ng2-dragula';
   entryComponents: [
     MyApp,
     Home,
-    Suma,
-    Resta
+    Suma1,
+    Suma2,
+    Suma3,
+    Suma4,
+    Resta,
+    SelectLevelSuma
   ],
   providers: []
 })
