@@ -10,7 +10,8 @@
     "emulate:before": "build",
     "deploy:before": "build",
     "build:before": "build",
-    "run:before": "build"
+    "run:before": "build",
+    "test": "karma start karma.conf.js"
   },
   "dependencies": {
     "@angular/common": "2.0.0",
@@ -33,7 +34,20 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^0.0.36",
-    "typescript": "^2.0.3"
+    "browserify": "^13.1.1",
+    "browserify-istanbul": "^2.0.0",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-browserify": "^5.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "run-sequence": "^1.2.2",
+    "typescript": "^2.0.3",
+    "watchify": "^3.7.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",

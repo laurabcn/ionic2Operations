@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-
 import { NavController, ToastController} from 'ionic-angular';
-
 import { Suma1 } from './../suma1/suma1';
-
-
 
 @Component({
   selector: 'page-suma2',
@@ -46,31 +42,5 @@ export class Suma2 extends Suma1{
     this.numberTwo = this.getNumberRandom();
     this.result = this.numberOne + this.numberTwo;
     this.numberValidate();
-  }
-  checkResult(){
-
-    if(this.resultDidac === this.result.toLocaleString())
-    {
-      let toast = this.toastCtrl.create({
-        message: 'Molt bé, Dídac!!!!',
-        duration: 1500,
-        position: 'middle'
-      });
-
-      toast.present();
-      this.setNumbers();
-    }else{
-      let toast = this.toastCtrl.create({
-        message: 'Oh vaya',
-        duration: 1500,
-        position: 'middle'
-      });
-      toast.present();
-    }
-
-    this.resultDidac = '';
-  }
-  add(x: number, y: number): number {
-    return x + y;
   }
 }
